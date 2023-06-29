@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { t } from '../../i18n'
 import { StyledLink } from '../'
 import { COMPANY_PATH } from '../../constants'
-import { SIZES } from '../../styles'
+import { BORDERS, FONT, SIZES } from '../../styles'
 
 interface SearchCompanyProps {
   convertedData: {
@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
   container: {
     padding: SIZES.medium,
     marginTop: SIZES.medium,
-    border: '1px solid black',
+    border: BORDERS.standard,
     flexDirection: 'row',
   },
   text: {
     padding: SIZES.medium,
   },
   title: {
-    fontWeight: 'bold',
+    fontFamily: FONT.bold,
   },
 })

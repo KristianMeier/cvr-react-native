@@ -1,3 +1,4 @@
+import { BORDERS, FONTSIZES, SIZES } from '../styles'
 import { SafeAreaViewWrapper } from './'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
@@ -31,16 +32,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 18,
-    marginBottom: 20,
+    fontSize: FONTSIZES.l,
+    marginBottom: SIZES.large,
   },
   button: {
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 5,
+    border: BORDERS.standard,
+    padding: SIZES.small,
+    marginBottom: SIZES.small,
+    width: 145,
   },
   buttonText: {
-    color: 'white',
     textAlign: 'center',
   },
 })

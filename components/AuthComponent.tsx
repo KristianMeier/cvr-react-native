@@ -8,6 +8,7 @@ import {
 import { useMessageRenderer } from '../hooks'
 import { AuthContextProps, useAuthContext } from '../context'
 import { SafeAreaViewWrapper } from '.'
+import { BORDERS, COLORS, SIZES } from '../styles'
 
 interface AuthComponentProps {
   onPressLeft: () => void
@@ -68,21 +69,19 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     flexDirection: 'row',
-    gap: 10,
+    gap: SIZES.small,
   },
   input: {
     width: 300,
     height: 40,
-    borderColor: 'black',
-    borderWidth: 1,
-    marginBottom: 10,
-    padding: 10,
+    border: BORDERS.standard,
+    marginBottom: SIZES.small,
+    padding: SIZES.small,
   },
   button: {
-    borderColor: 'black',
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 10,
+    border: BORDERS.standard,
+    padding: SIZES.small,
+    marginBottom: SIZES.small,
     width: 145,
   },
   buttonText: {

@@ -3,7 +3,7 @@ import contentData from '../constants/database.json'
 import { View, Text, StyleSheet } from 'react-native'
 import { t } from '../i18n'
 import { SafeAreaViewWrapper } from '../components/'
-import { FONT, SIZES } from '../styles'
+import { BORDERS, FONT, FONTSIZES, SIZES } from '../styles'
 
 const Company = () => {
   const companies = contentData.companiesData
@@ -41,11 +41,11 @@ export default Company
 export const styles = StyleSheet.create({
   backToSearch: {
     fontFamily: FONT.bold,
-    fontSize: SIZES.medium,
+    fontSize: FONTSIZES.m,
   },
   companyName: {
     fontFamily: FONT.bold,
-    fontSize: SIZES.large,
+    fontSize: FONTSIZES.s,
   },
   container: {
     marginTop: SIZES.medium,
@@ -60,6 +60,6 @@ export const styles = StyleSheet.create({
   },
   companyWrapper: {
     padding: SIZES.medium,
-    border: '1px solid black',
+    border: BORDERS.standard,
   },
 })

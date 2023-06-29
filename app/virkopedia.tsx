@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { t } from '../i18n'
 import { SafeAreaViewWrapper } from '../components'
-import { SIZES } from '../styles'
+import { COLORS, FONT, FONTSIZES, SIZES } from '../styles'
 
 const articles = contentData.virkopediaData
 
@@ -57,29 +57,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     maxWidth: 500,
+    with: width,
   }),
   btnContainer: {
     flexDirection: 'row',
     gap: 10,
     flexWrap: 'wrap',
     marginBottom: SIZES.medium,
-    borderBottomColor: 'black',
+    borderBottomColor: COLORS.gray2,
     borderBottomWidth: 1,
   },
 
   headline: {
-    fontSize: SIZES.medium,
-    fontFamily: 'DMBold',
+    fontSize: FONTSIZES.
+    fontFamily: FONT.bold,
   },
   text: {
-    fontSize: SIZES.small,
-    fontFamily: 'DMRegular',
+    fontSize: FONTSIZES.s,
+    fontFamily: FONT.regular,
     lineHeight: 20,
   },
   //@ts-ignore
   buttonText: (isActiveButton) => ({
     textAlign: 'center',
-    fontSize: SIZES.medium,
-    fontFamily: isActiveButton ? 'DMBold' : 'DMRegular',
+    fontSize: FONTSIZES.m,
+    fontFamily: isActiveButton ? FONT.bold : FONT.regular,
   }),
 })

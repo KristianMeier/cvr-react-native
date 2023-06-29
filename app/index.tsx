@@ -4,7 +4,7 @@ import { ScrollView, Text, TextInput, View, StyleSheet } from 'react-native'
 import { t } from '../i18n'
 import { SearchContextProps, useSearchContext } from '../context'
 import { SafeAreaViewWrapper } from '../components'
-import { SIZES, COLORS } from '../styles'
+import { SIZES, COLORS, FONT, BORDERS } from '../styles'
 
 const allCompanies = contentData.companiesData
 
@@ -40,13 +40,12 @@ const styles = StyleSheet.create({
   },
   searcTheCvr: {
     marginBottom: SIZES.medium,
-
-    fontFamily: 'DMBold',
+    fontFamily: FONT.bold,
     fontSize: SIZES.xLarge,
   },
   textInput: {
     padding: SIZES.medium,
-    border: '1px solid black',
+    border: BORDERS.standard,
     flex: 1,
   },
   searchBtnImage: {
