@@ -26,6 +26,7 @@ const SIZES = {
 }
 
 const FONTSIZES = {
+  xs: normalize(10),
   s: normalize(14),
   m: normalize(16),
   l: normalize(18),
@@ -56,7 +57,11 @@ const SHADOWS = {
 }
 
 const BORDERS = {
-  standard: '1px solid black',
+  standard: {
+    borderWidth: 1,
+    borderColor: COLORS.gray2,
+    borderStyle: 'solid',
+  },
 }
 
 export { COLORS, FONT, SIZES, FONTSIZES, SHADOWS, BORDERS }

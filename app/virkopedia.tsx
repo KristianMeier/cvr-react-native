@@ -56,8 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    maxWidth: 500,
-    with: width,
+    maxWidth: 300,
   }),
   btnContainer: {
     flexDirection: 'row',
@@ -69,18 +68,19 @@ const styles = StyleSheet.create({
   },
 
   headline: {
-    fontSize: FONTSIZES.
+    // ToDO: Why can't i use normalize here? It gets crazy huge, at least on web
+    fontSize: 16,
     fontFamily: FONT.bold,
   },
   text: {
-    fontSize: FONTSIZES.s,
+    fontSize: 12,
     fontFamily: FONT.regular,
     lineHeight: 20,
   },
   //@ts-ignore
   buttonText: (isActiveButton) => ({
     textAlign: 'center',
-    fontSize: FONTSIZES.m,
+    fontSize: 16,
     fontFamily: isActiveButton ? FONT.bold : FONT.regular,
   }),
 })

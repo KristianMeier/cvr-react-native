@@ -21,6 +21,7 @@ const Company = () => {
 
   return (
     <SafeAreaViewWrapper>
+      {/* @ts-ignore */}
       <View style={styles.companyWrapper}>
         <Text style={styles.companyName}>{companyName}</Text>
         <View style={styles.container}>
@@ -60,6 +61,6 @@ export const styles = StyleSheet.create({
   },
   companyWrapper: {
     padding: SIZES.medium,
-    border: BORDERS.standard,
+    ...BORDERS.standard,
   },
 })

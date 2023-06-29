@@ -31,12 +31,14 @@ export const AuthComponent = ({
     <SafeAreaViewWrapper>
       <View style={styles.container}>
         <TextInput
+          // @ts-ignore
           style={styles.input}
           placeholder="Username"
           value={username}
           onChangeText={(text) => setUsername(text)}
         />
         <TextInput
+          // @ts-ignore
           style={styles.input}
           placeholder="Password"
           secureTextEntry
@@ -45,11 +47,13 @@ export const AuthComponent = ({
         />
         <View style={styles.btnContainer}>
           <TouchableOpacity
+            // @ts-ignore
             style={styles.button}
             onPress={onPressLeft}>
             <Text style={styles.buttonText}>{btnTextLeft}</Text>
           </TouchableOpacity>
           <TouchableOpacity
+            // @ts-ignore
             style={styles.button}
             onPress={onPressRight}>
             <Text style={styles.buttonText}>{btnTextRight}</Text>
@@ -74,12 +78,12 @@ const styles = StyleSheet.create({
   input: {
     width: 300,
     height: 40,
-    border: BORDERS.standard,
+    ...BORDERS.standard,
     marginBottom: SIZES.small,
     padding: SIZES.small,
   },
   button: {
-    border: BORDERS.standard,
+    ...BORDERS.standard,
     padding: SIZES.small,
     marginBottom: SIZES.small,
     width: 145,

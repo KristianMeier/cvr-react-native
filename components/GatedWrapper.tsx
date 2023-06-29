@@ -17,6 +17,7 @@ export const GatedWrapper = ({
     <SafeAreaViewWrapper>
       <Text style={styles.text}>{header}</Text>
       <TouchableOpacity
+        // @ts-ignore
         style={styles.button}
         onPress={onPress}>
         <Text style={styles.buttonText}>{buttonText}</Text>
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     marginBottom: SIZES.large,
   },
   button: {
-    border: BORDERS.standard,
+    ...BORDERS.standard,
     padding: SIZES.small,
     marginBottom: SIZES.small,
     width: 145,

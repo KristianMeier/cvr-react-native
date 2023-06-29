@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet, ScrollView } from 'react-native'
 import { Navigation } from './Navigation'
-import { COLORS } from '../styles'
+import { COLORS, SIZES } from '../styles'
 
 interface SafeAreaViewWrapperProps {
   children: React.ReactNode
@@ -23,5 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     alignItems: 'center',
     justifyContent: 'center',
+    margin: SIZES.small,
   },
 })

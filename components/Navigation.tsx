@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { Stack, useRouter } from 'expo-router'
 import { navigationData } from '../constants'
-import { SIZES, COLORS, FONT } from '../styles'
+import { SIZES, COLORS, FONT, BORDERS } from '../styles'
 import { NavigationContextProps, useNagigationContext } from '../context'
 
 export const Navigation = () => {
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     paddingVertical: SIZES.small / 2,
     paddingHorizontal: SIZES.small,
     borderRadius: SIZES.medium,
-    borderWidth: 1,
+    ...BORDERS.standard,
     borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
   }),
   //@ts-ignore

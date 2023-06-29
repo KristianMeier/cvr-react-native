@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     padding: SIZES.medium,
     marginTop: SIZES.medium,
-    border: BORDERS.standard,
+    ...BORDERS.standard,
     flexDirection: 'row',
   },
   text: {

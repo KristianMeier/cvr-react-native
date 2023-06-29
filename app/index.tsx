@@ -18,6 +18,7 @@ const Index = () => {
         <View>
           <Text style={styles.searcTheCvr}>{t('searchTitle')} </Text>
           <TextInput
+            // @ts-ignore
             style={styles.textInput}
             value={searchField}
             onChangeText={setSearchField}
@@ -45,8 +46,8 @@ const styles = StyleSheet.create({
   },
   textInput: {
     padding: SIZES.medium,
-    border: BORDERS.standard,
     flex: 1,
+    ...BORDERS.standard,
   },
   searchBtnImage: {
     width: '50%',
