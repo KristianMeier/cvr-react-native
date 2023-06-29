@@ -1,5 +1,4 @@
 Todo
 
-- Shared styles (reusable styles)
-- Reusable component (account register)
 - Only use constants and from theme
+- Prøv at fixe ts-ignores

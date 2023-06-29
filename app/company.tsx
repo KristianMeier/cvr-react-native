@@ -7,13 +7,17 @@ import { FONT, SIZES } from '../styles'
 
 const Company = () => {
   const companies = contentData.companiesData
-
   const selectedCompany = companies[0]
 
   const formattedCompany = getConvertedCompanyData(selectedCompany)
   const companyName = t(selectedCompany?.companyName)
 
-  if (!formattedCompany) return <View>{t('companies.nocompanies')}</View>
+  if (!formattedCompany)
+    return (
+      <View>
+        <Text>{t('companies.nocompanies')}</Text>
+      </View>
+    )
 
   return (
     <SafeAreaViewWrapper>

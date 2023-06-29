@@ -8,7 +8,7 @@ import { SIZES, COLORS } from '../styles'
 
 const allCompanies = contentData.companiesData
 
-const SearchWrapper = () => {
+const Index = () => {
   const { searchField, setSearchField } =
     useSearchContext() as SearchContextProps
 
@@ -23,7 +23,6 @@ const SearchWrapper = () => {
             onChangeText={setSearchField}
             placeholder="Write Company Name, Cvr Number or Address"
           />
-
           <SearchResults allCompanies={allCompanies} />
         </View>
       </ScrollView>
@@ -31,7 +30,7 @@ const SearchWrapper = () => {
   )
 }
 
-export default SearchWrapper
+export default Index
 
 const styles = StyleSheet.create({
   container: {
@@ -47,7 +46,6 @@ const styles = StyleSheet.create({
   },
   textInput: {
     padding: SIZES.medium,
-    // @ts-ignore
     border: '1px solid black',
     flex: 1,
   },

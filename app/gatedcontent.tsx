@@ -1,3 +1,4 @@
+import { MYACCOUNT_PATH } from '../constants'
 import { GatedWrapper } from '../components'
 import { AuthContextProps, useAuthContext } from '../context'
 import { useRouter } from 'expo-router'
@@ -8,9 +9,7 @@ const GatedContent = () => {
 
   if (isLoggedIn)
     return (
-      // @ts-ignore
       <GatedWrapper
-        // @ts-ignore
         header="You are logged in"
         onPress={logOut}
         buttonText="Log Out"
@@ -19,9 +18,8 @@ const GatedContent = () => {
 
   return (
     <GatedWrapper
-      // @ts-ignore
       header="You are not logged in"
-      onPress={() => router.push('/login')}
+      onPress={() => router.push(MYACCOUNT_PATH)}
       buttonText="Log In"
     />
   )
