@@ -49,11 +49,11 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     )
   }
 
-  const showLoginAlertFail = () => {
+  const showLoginFailAlert = () => {
     Alert.alert('Login Failed', 'Try again', [
       {
         text: 'Ok',
-        onPress: () => clearAuthInfo(MYACCOUNT_PATH),
+        onPress: () => clearInputFieldsAndGoTOPath(MYACCOUNT_PATH),
       },
     ])
   }
@@ -65,36 +65,36 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         [username, password],
         (_, { rows }) => {
           const userExists = rows.length > 0
-          userExists ? logIn() : showLoginAlertFail()
+          userExists ? logIn() : showLoginFailAlert()
         }
       )
     })
   }
 
-  const clearAuthInfo = (path: string) => {
+  const clearInputFieldsAndGoTOPath = (path: string) => {
     setUsername('')
     setPassword('')
     router.push(path)
   }
 
-  const showRegisterFail = () => {
+  const showRegisterFailAlert = () => {
     Alert.alert('Another user with that name', 'Super duper', [
       {
         text: 'Ok',
-        onPress: () => clearAuthInfo(REGISTER_PATH),
+        onPress: () => clearInputFieldsAndGoTOPath(REGISTER_PATH),
       },
     ])
   }
 
-  const showRegisterSuccess = () => {
+  const showRegisterSuccessAlert = () => {
     Alert.alert('Registration Successfull', 'Everything is Ok', [
       {
         text: 'Go to Login Page',
-        onPress: () => clearAuthInfo(MYACCOUNT_PATH),
+        onPress: () => clearInputFieldsAndGoTOPath(MYACCOUNT_PATH),
       },
       {
         text: 'Register more users',
-        onPress: () => clearAuthInfo(REGISTER_PATH),
+        onPress: () => clearInputFieldsAndGoTOPath(REGISTER_PATH),
       },
     ])
   }
@@ -104,11 +104,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       tx.executeSql(
         'INSERT INTO users (username, password) VALUES (?, ?);',
         [username, password],
-        (_, { insertId }) => {
-          {
-            if (insertId) showRegisterSuccess()
-          }
-        }
+        (_, {}) => showRegisterSuccessAlert()
       )
     })
   }
@@ -120,7 +116,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         [username],
         (_, { rows }) => {
           const userExists = rows.length > 0
-          userExists ? showRegisterFail() : addUsertoDb()
+          userExists ? showRegisterFailAlert() : addUsertoDb()
         }
       )
     })
@@ -139,7 +135,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         createTable,
         loginUser,
         registerUser,
-        clearAuthInfo,
+        clearAuthInfo: clearInputFieldsAndGoTOPath,
       }}>
       {children}
     </AuthContext.Provider>
