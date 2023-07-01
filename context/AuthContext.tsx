@@ -1,7 +1,8 @@
 import { useState, useContext, createContext } from 'react'
 import * as SQLite from 'expo-sqlite'
 import { useRouter } from 'expo-router'
-import { GATED_CONTENT_PATH } from '../constants'
+import { GATED_CONTENT_PATH, MYACCOUNT_PATH, REGISTER_PATH } from '../constants'
+import { Alert } from 'react-native'
 
 const db = SQLite.openDatabase('authentication.db')
 
@@ -48,6 +49,15 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     )
   }
 
+  const showLoginAlertFail = () => {
+    Alert.alert('Login Failed', 'Try again', [
+      {
+        text: 'Ok',
+        onPress: () => clearAuthInfo(MYACCOUNT_PATH),
+      },
+    ])
+  }
+
   const loginUser = () => {
     db.transaction((tx) => {
       tx.executeSql(
@@ -55,7 +65,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         [username, password],
         (_, { rows }) => {
           const userExists = rows.length > 0
-          userExists ? logIn() : console.log('Invalid username or password.')
+          userExists ? logIn() : showLoginAlertFail()
         }
       )
     })
@@ -67,15 +77,25 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     router.push(path)
   }
 
+  const showRegisterFail = () => {
+    Alert.alert('Registration failed', 'Try again', [
+      {
+        text: 'Ok',
+        onPress: () => clearAuthInfo(REGISTER_PATH),
+      },
+    ])
+  }
+
   const addUsertoDb = () => {
     db.transaction((tx) => {
       tx.executeSql(
         'INSERT INTO users (username, password) VALUES (?, ?);',
         [username, password],
-        (_, { insertId }) =>
-          insertId
-            ? console.log('User registered successfully.')
-            : console.log('Failed to register user.')
+        (_, { insertId }) => {
+          {
+            if (insertId) console.log('User registered successfully.')
+          }
+        }
       )
     })
   }
@@ -87,7 +107,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         [username],
         (_, { rows }) => {
           const userExists = rows.length > 0
-          userExists ? console.log('Username already exists.') : addUsertoDb()
+          userExists ? showRegisterFail() : addUsertoDb()
         }
       )
     })

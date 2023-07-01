@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router'
 import { AuthContextProps, useAuthContext } from '../context'
 import { GATED_CONTENT_PATH, REGISTER_PATH } from '../constants'
 import { AuthComponent } from '../components/AuthComponent'
+import { View } from 'react-native'
 
 const MyAccount = () => {
   const { createTable, isLoggedIn, loginUser, clearAuthInfo } =
@@ -16,13 +17,15 @@ const MyAccount = () => {
   if (isLoggedIn) router.push(GATED_CONTENT_PATH)
 
   return (
-    <AuthComponent
-      header="Log in beneath"
-      onPressLeft={loginUser}
-      btnTextLeft="Log In"
-      onPressRight={() => clearAuthInfo(REGISTER_PATH)}
-      btnTextRight="Go to Register Screen"
-    />
+    <View>
+      <AuthComponent
+        header="Log in beneath"
+        onPressLeft={() => loginUser()}
+        btnTextLeft="Log In"
+        onPressRight={() => clearAuthInfo(REGISTER_PATH)}
+        btnTextRight="Go to Register Screen"
+      />
+    </View>
   )
 }
 
