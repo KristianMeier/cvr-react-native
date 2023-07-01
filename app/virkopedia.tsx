@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
   },
 
   headline: {
-    // ToDO: Why can't i use normalize here? It gets crazy huge, at least on web
     fontSize: 16,
     fontFamily: FONT.bold,
   },

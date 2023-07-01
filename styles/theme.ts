@@ -8,6 +8,7 @@ export const COLORS = {
   gray2: '#C1C0C8',
   white: '#F3F4F8',
   lightWhite: '#FAFAFC',
+  black: '#000000',
 }
 
 export const FONT = {

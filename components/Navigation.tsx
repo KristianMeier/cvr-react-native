@@ -29,7 +29,7 @@ export const Navigation = () => {
                   styles.tab,
                   {
                     borderColor:
-                      activeTab === item.path ? COLORS.secondary : COLORS.gray2,
+                      activeTab === item.text ? COLORS.black : COLORS.gray2,
                   },
                 ]}
                 onPress={() => {
@@ -41,9 +41,7 @@ export const Navigation = () => {
                     styles.tabText,
                     {
                       color:
-                        activeTab === item.path
-                          ? COLORS.secondary
-                          : COLORS.gray2,
+                        activeTab === item.text ? COLORS.black : COLORS.gray2,
                     },
                   ]}>
                   {item.text}

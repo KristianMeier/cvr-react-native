@@ -5,7 +5,7 @@ import { GATED_CONTENT_PATH, REGISTER_PATH } from '../constants'
 import { AuthComponent } from '../components/AuthComponent'
 
 const MyAccount = () => {
-  const { createTable, isLoggedIn, loginUser } =
+  const { createTable, isLoggedIn, loginUser, clearAuthInfo } =
     useAuthContext() as AuthContextProps
   const router = useRouter()
 
@@ -20,7 +20,7 @@ const MyAccount = () => {
       header="Log in beneath"
       onPressLeft={loginUser}
       btnTextLeft="Log In"
-      onPressRight={() => router.push(REGISTER_PATH)}
+      onPressRight={() => clearAuthInfo(REGISTER_PATH)}
       btnTextRight="Go to Register Screen"
     />
   )
