@@ -78,9 +78,22 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   }
 
   const showRegisterFail = () => {
-    Alert.alert('Registration failed', 'Try again', [
+    Alert.alert('Another user with that name', 'Super duper', [
       {
         text: 'Ok',
+        onPress: () => clearAuthInfo(REGISTER_PATH),
+      },
+    ])
+  }
+
+  const showRegisterSuccess = () => {
+    Alert.alert('Registration Successfull', 'Everything is Ok', [
+      {
+        text: 'Go to Login Page',
+        onPress: () => clearAuthInfo(MYACCOUNT_PATH),
+      },
+      {
+        text: 'Register more users',
         onPress: () => clearAuthInfo(REGISTER_PATH),
       },
     ])
@@ -93,7 +106,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         [username, password],
         (_, { insertId }) => {
           {
-            if (insertId) console.log('User registered successfully.')
+            if (insertId) showRegisterSuccess()
           }
         }
       )
