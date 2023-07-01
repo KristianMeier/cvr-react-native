@@ -8,42 +8,58 @@ import {
 } from 'react-native'
 import { Stack, useRouter } from 'expo-router'
 import { navigationData } from '../constants'
-import { SIZES, COLORS, FONT } from '../styles'
+import {
+  SIZES,
+  COLORS,
+  FONT,
+  BORDER_WIDTH,
+  BORDER_COLOR,
+  BORDER_STYLE,
+} from '../styles'
 import { NavigationContextProps, useNagigationContext } from '../context'
+
+interface renderItemProps {
+  item: {
+    text: string
+    path: string
+  }
+}
 
 export const Navigation = () => {
   const { activeTab, setActiveTab } =
     useNagigationContext() as NavigationContextProps
   const router = useRouter()
 
+  const renderItem = ({ item }: renderItemProps) => {
+    const isActiveTab = activeTab === item.text
+
+    return (
+      <TouchableOpacity
+        style={[
+          styles.tab,
+          { borderColor: isActiveTab ? COLORS.black : COLORS.gray2 },
+        ]}
+        onPress={() => {
+          setActiveTab(item.text)
+          router.push(item.path)
+        }}>
+        <Text
+          style={[
+            styles.tabText,
+            { color: isActiveTab ? COLORS.black : COLORS.gray2 },
+          ]}>
+          {item.text}
+        </Text>
+      </TouchableOpacity>
+    )
+  }
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ header: () => null }} />
       <View style={styles.tabsContainer}>
         <FlatList
           data={navigationData}
-          renderItem={({ item }) => {
-            const isActiveTab = activeTab === item.text
-            return (
-              <TouchableOpacity
-                style={[
-                  styles.tab,
-                  { borderColor: isActiveTab ? COLORS.black : COLORS.gray2 },
-                ]}
-                onPress={() => {
-                  setActiveTab(item.text)
-                  router.push(item.path)
-                }}>
-                <Text
-                  style={[
-                    styles.tabText,
-                    { color: isActiveTab ? COLORS.black : COLORS.gray2 },
-                  ]}>
-                  {item.text}
-                </Text>
-              </TouchableOpacity>
-            )
-          }}
+          renderItem={renderItem}
           keyExtractor={(item) => item.path}
           contentContainerStyle={{ columnGap: SIZES.small }}
           horizontal
@@ -63,11 +79,11 @@ const styles = StyleSheet.create({
     height: 30,
   },
   tab: {
-    paddingVertical: SIZES.small / 2,
+    paddingVertical: SIZES.xxSmall,
     paddingHorizontal: SIZES.small,
-    borderRadius: SIZES.medium,
-    borderWidth: 1,
-    borderStyle: 'solid',
+    borderWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR,
+    borderStyle: BORDER_STYLE,
   },
   tabText: {
     fontFamily: FONT.medium,

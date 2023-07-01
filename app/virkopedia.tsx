@@ -2,7 +2,14 @@ import { useState } from 'react'
 import contentData from '../constants/database.json'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { t } from '../i18n'
-import { COLORS, FONT, FONTSIZES, SIZES } from '../styles'
+import {
+  BORDER_COLOR,
+  BORDER_WIDTH,
+  COLORS,
+  FONT,
+  FONTSIZES,
+  SIZES,
+} from '../styles'
 import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const articles = contentData.virkopediaData
@@ -34,7 +41,6 @@ const Virkopedia = () => {
           })}
         </View>
       </View>
-
       <View>
         <Text style={styles.headline}>{t(title)}</Text>
         <Text style={styles.text}>{t(content)}</Text>
@@ -49,10 +55,10 @@ const styles = StyleSheet.create({
   btnContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: 10,
+    gap: SIZES.xSmall,
     marginBottom: SIZES.medium,
-    borderBottomColor: COLORS.gray2,
-    borderBottomWidth: 1,
+    borderBottomColor: BORDER_COLOR,
+    borderBottomWidth: BORDER_WIDTH,
   },
 
   headline: {
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: FONTSIZES.xs,
-    lineHeight: 20,
+    lineHeight: SIZES.large,
   },
   buttonText: {
     textAlign: 'center',

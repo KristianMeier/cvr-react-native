@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native'
 import { AuthContextProps, useAuthContext } from '../context'
-import { COLORS, SIZES } from '../styles'
+import { BORDER_COLOR, BORDER_STYLE, BORDER_WIDTH, SIZES } from '../styles'
 import { SafeAreaViewWrapper } from './SafeAreaViewWrapper'
 
 interface AuthComponentProps {
@@ -65,23 +65,23 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   input: {
+    width: '100%',
     height: 40,
     marginBottom: SIZES.small,
     padding: SIZES.small,
-    borderWidth: 1,
-    borderColor: COLORS.gray2,
-    borderStyle: 'solid',
-    width: '100%',
+    borderWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR,
+    borderStyle: BORDER_STYLE,
   },
   button: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
     padding: SIZES.small,
     marginBottom: SIZES.small,
-    borderWidth: 1,
-    borderColor: COLORS.gray2,
-    borderStyle: 'solid',
+    borderWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR,
+    borderStyle: BORDER_STYLE,
   },
   buttonText: {
     textAlign: 'center',

@@ -16,6 +16,7 @@ export const FONT = {
 }
 
 export const SIZES = {
+  xxSmall: 8,
   xSmall: 10,
   small: 12,
   medium: 16,
@@ -32,3 +33,7 @@ export const FONTSIZES = {
   xl: 20,
   xxl: 24,
 }
+
+export const BORDER_COLOR = COLORS.gray2
+export const BORDER_WIDTH = 1
+export const BORDER_STYLE = 'solid'

@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: COLORS.white,
-    alignItems: 'center',
     justifyContent: 'center',
-    padding: SIZES.medium,
+    alignItems: 'center',
     width: '100%',
+    backgroundColor: COLORS.white,
+    padding: SIZES.medium,
   },
   header: {
     marginBottom: SIZES.medium,

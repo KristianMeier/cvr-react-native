@@ -1,4 +1,10 @@
-import { COLORS, FONTSIZES, SIZES } from '../styles'
+import {
+  BORDER_COLOR,
+  BORDER_STYLE,
+  BORDER_WIDTH,
+  FONTSIZES,
+  SIZES,
+} from '../styles'
 import { SafeAreaViewWrapper } from './SafeAreaViewWrapper'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
@@ -38,12 +44,12 @@ const styles = StyleSheet.create({
     marginBottom: SIZES.large,
   },
   button: {
+    width: 145,
     padding: SIZES.small,
     marginBottom: SIZES.small,
-    width: 145,
-    borderWidth: 1,
-    borderColor: COLORS.gray2,
-    borderStyle: 'solid',
+    borderWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR,
+    borderStyle: BORDER_STYLE,
   },
 
   buttonText: {

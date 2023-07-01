@@ -2,7 +2,14 @@ import { getConvertedCompanyData } from '../utils'
 import contentData from '../constants/database.json'
 import { View, Text, StyleSheet } from 'react-native'
 import { t } from '../i18n'
-import { COLORS, FONT, FONTSIZES, SIZES } from '../styles'
+import {
+  BORDER_COLOR,
+  BORDER_STYLE,
+  BORDER_WIDTH,
+  FONT,
+  FONTSIZES,
+  SIZES,
+} from '../styles'
 import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const Company = () => {
@@ -39,11 +46,11 @@ export default Company
 
 export const styles = StyleSheet.create({
   companyWrapper: {
-    padding: SIZES.medium,
-    borderWidth: 1,
-    borderColor: COLORS.gray2,
-    borderStyle: 'solid',
     width: '100%',
+    padding: SIZES.medium,
+    borderWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR,
+    borderStyle: BORDER_STYLE,
   },
   companyName: {
     fontFamily: FONT.bold,
