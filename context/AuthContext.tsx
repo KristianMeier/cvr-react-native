@@ -64,7 +64,13 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     })
   }
 
-  const registerUser = () => {
+  const clearAuthInfo = (path: string) => {
+    setUsername('')
+    setPassword('')
+    router.push(path)
+  }
+
+  const addUsertoDb = () => {
     db.transaction((tx) => {
       tx.executeSql(
         'INSERT INTO users (username, password) VALUES (?, ?);',
@@ -80,10 +86,20 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     })
   }
 
-  const clearAuthInfo = (path: string) => {
-    setUsername('')
-    setPassword('')
-    router.push(path)
+  const registerUser = () => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        'SELECT * FROM users WHERE username = ?;',
+        [username],
+        (_, { rows }) => {
+          if (rows.length > 0) {
+            console.log('Username already exists.')
+          } else {
+            addUsertoDb()
+          }
+        }
+      )
+    })
   }
 
   return (
