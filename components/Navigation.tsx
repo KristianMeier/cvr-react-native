@@ -14,7 +14,6 @@ import { NavigationContextProps, useNagigationContext } from '../context'
 export const Navigation = () => {
   const { activeTab, setActiveTab } =
     useNagigationContext() as NavigationContextProps
-
   const router = useRouter()
 
   return (
@@ -50,7 +49,6 @@ export const Navigation = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     marginTop: StatusBar.currentHeight || 0,
   },
   tabsContainer: {

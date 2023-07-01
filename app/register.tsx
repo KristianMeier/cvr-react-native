@@ -10,6 +10,7 @@ const Register = () => {
 
   return (
     <AuthComponent
+      header="Register an account"
       onPressLeft={registerUser}
       btnTextLeft="Register"
       onPressRight={() => router.push(MYACCOUNT_PATH)}

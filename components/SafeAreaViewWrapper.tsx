@@ -1,17 +1,25 @@
-import { SafeAreaView, StyleSheet, ScrollView } from 'react-native'
+import { SafeAreaView, StyleSheet, ScrollView, View, Text } from 'react-native'
 import { Navigation } from './Navigation'
-import { COLORS, SIZES } from '../styles'
+import { BORDERS, COLORS, FONT, SIZES } from '../styles'
 
 interface SafeAreaViewWrapperProps {
   children: React.ReactNode
+  header: string
 }
 
-export const SafeAreaViewWrapper = ({ children }: SafeAreaViewWrapperProps) => {
+export const SafeAreaViewWrapper = ({
+  children,
+  header,
+}: SafeAreaViewWrapperProps) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Navigation />
-        {children}
+        {/* @ts-ignore */}
+        <View style={styles.container}>
+          <Navigation />
+          <Text style={styles.header}>{header}</Text>
+          {children}
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
@@ -23,6 +31,13 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: SIZES.small,
+
+    width: '100%',
+    ...BORDERS.standard,
+  },
+  header: {
+    marginBottom: SIZES.medium,
+    fontFamily: FONT.bold,
+    fontSize: SIZES.xLarge,
   },
 })

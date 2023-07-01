@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router'
 interface StyledLinkProps {
   path: string
   children: React.ReactNode
-  style?: any
+  style?: {}
 }
 
 export const StyledLink = ({ path, children, style }: StyledLinkProps) => {

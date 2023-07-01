@@ -35,10 +35,10 @@ export const SearchCompany = ({ convertedData, uid }: SearchCompanyProps) => {
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'column',
     padding: SIZES.medium,
     marginTop: SIZES.medium,
     ...BORDERS.standard,
-    flexDirection: 'row',
   },
   text: {
     padding: SIZES.medium,

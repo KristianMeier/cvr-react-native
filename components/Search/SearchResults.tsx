@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { getConvertedSearchData, getFilteredCompanies } from '../../utils'
 import { CompanyData } from '../../types'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { t } from '../../i18n'
 import { SearchContextProps, useSearchContext } from '../../context'
 import { SearchCompany } from './SearchCompany'
@@ -30,7 +30,7 @@ export const SearchResults = ({ allCompanies }: SearchResultsProps) => {
 
   if (isCompaniesFound)
     return (
-      <View>
+      <View style={styles.companyWrapper}>
         {companies.map((company, index) => {
           const convertedData = getConvertedSearchData({ ...company })
 
@@ -47,3 +47,9 @@ export const SearchResults = ({ allCompanies }: SearchResultsProps) => {
 
   return null
 }
+
+const styles = StyleSheet.create({
+  companyWrapper: {
+    width: '100%',
+  },
+})

@@ -1,11 +1,11 @@
 import { BORDERS, FONTSIZES, SIZES } from '../styles'
-import { SafeAreaViewWrapper } from './'
+import { SafeAreaViewWrapper } from './SafeAreaViewWrapper'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 interface GatedWrapperProps {
-  header: string
   onPress: () => void
   buttonText: string
+  header: string
 }
 
 export const GatedWrapper = ({
@@ -14,8 +14,7 @@ export const GatedWrapper = ({
   buttonText,
 }: GatedWrapperProps) => {
   return (
-    <SafeAreaViewWrapper>
-      <Text style={styles.text}>{header}</Text>
+    <SafeAreaViewWrapper header={header}>
       <TouchableOpacity
         // @ts-ignore
         style={styles.button}

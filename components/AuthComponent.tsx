@@ -8,13 +8,14 @@ import {
 import { useMessageRenderer } from '../hooks'
 import { AuthContextProps, useAuthContext } from '../context'
 import { SafeAreaViewWrapper } from '.'
-import { BORDERS, COLORS, SIZES } from '../styles'
+import { BORDERS, SIZES } from '../styles'
 
 interface AuthComponentProps {
   onPressLeft: () => void
   btnTextLeft: string
   onPressRight: () => void
   btnTextRight: string
+  header: string
 }
 
 export const AuthComponent = ({
@@ -22,55 +23,49 @@ export const AuthComponent = ({
   btnTextLeft,
   onPressRight,
   btnTextRight,
+  header,
 }: AuthComponentProps) => {
   const { username, password, setUsername, setPassword } =
     useAuthContext() as AuthContextProps
   const { status } = useMessageRenderer()
 
   return (
-    <SafeAreaViewWrapper>
-      <View style={styles.container}>
-        <TextInput
+    <SafeAreaViewWrapper header={header}>
+      <TextInput
+        // @ts-ignore
+        style={styles.input}
+        placeholder="Username"
+        value={username}
+        onChangeText={(text) => setUsername(text)}
+      />
+      <TextInput
+        // @ts-ignore
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+      />
+      <View style={styles.btnContainer}>
+        <TouchableOpacity
           // @ts-ignore
-          style={styles.input}
-          placeholder="Username"
-          value={username}
-          onChangeText={(text) => setUsername(text)}
-        />
-        <TextInput
+          style={styles.button}
+          onPress={onPressLeft}>
+          <Text style={styles.buttonText}>{btnTextLeft}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           // @ts-ignore
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-        />
-        <View style={styles.btnContainer}>
-          <TouchableOpacity
-            // @ts-ignore
-            style={styles.button}
-            onPress={onPressLeft}>
-            <Text style={styles.buttonText}>{btnTextLeft}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            // @ts-ignore
-            style={styles.button}
-            onPress={onPressRight}>
-            <Text style={styles.buttonText}>{btnTextRight}</Text>
-          </TouchableOpacity>
-        </View>
-        {status ? <Text>{status}</Text> : null}
+          style={styles.button}
+          onPress={onPressRight}>
+          <Text style={styles.buttonText}>{btnTextRight}</Text>
+        </TouchableOpacity>
       </View>
+      {status ? <Text>{status}</Text> : null}
     </SafeAreaViewWrapper>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   btnContainer: {
     flexDirection: 'row',
     gap: SIZES.small,

@@ -18,6 +18,7 @@ const MyAccount = () => {
 
   return (
     <AuthComponent
+      header="Log in beneath"
       onPressLeft={loginUser}
       btnTextLeft="Login"
       onPressRight={() => router.push(REGISTER_PATH)}

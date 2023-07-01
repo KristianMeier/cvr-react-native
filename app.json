@@ -4,7 +4,7 @@
     "web": {
       "bundler": "metro"
     },
-    "name": "kristians-mobile-app",
-    "slug": "kristians-mobile-app"
+    "name": "cvr-react-native",
+    "slug": "cvr-react-native"
   }
 }

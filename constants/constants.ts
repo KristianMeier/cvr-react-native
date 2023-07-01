@@ -8,6 +8,4 @@ export const navigationData = [
   { path: SEARCH_PATH, text: 'Search' },
   { path: VIRKOPEDIA_PATH, text: 'Virkopedia' },
   { path: MYACCOUNT_PATH, text: 'My Account' },
-  { path: COMPANY_PATH, text: 'Company' },
-  { path: REGISTER_PATH, text: 'Register' },
 ]

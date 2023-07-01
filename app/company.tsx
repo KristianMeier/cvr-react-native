@@ -20,11 +20,10 @@ const Company = () => {
     )
 
   return (
-    <SafeAreaViewWrapper>
+    <SafeAreaViewWrapper header={companyName}>
       {/* @ts-ignore */}
       <View style={styles.companyWrapper}>
-        <Text style={styles.companyName}>{companyName}</Text>
-        <View style={styles.container}>
+        <View style={styles.companyContainer}>
           {formattedCompany.map(({ title, field }) => (
             <View key={t(field)}>
               <Text style={styles.title}>{t(title)} </Text>
@@ -40,27 +39,21 @@ const Company = () => {
 export default Company
 
 export const styles = StyleSheet.create({
-  backToSearch: {
-    fontFamily: FONT.bold,
-    fontSize: FONTSIZES.m,
+  companyWrapper: {
+    padding: SIZES.medium,
+    ...BORDERS.standard,
+    width: '100%',
   },
   companyName: {
     fontFamily: FONT.bold,
     fontSize: FONTSIZES.s,
   },
-  container: {
-    marginTop: SIZES.medium,
+  companyContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  text: {
-    padding: SIZES.medium,
+    marginTop: SIZES.medium,
   },
   title: {
     fontFamily: FONT.bold,
-  },
-  companyWrapper: {
-    padding: SIZES.medium,
-    ...BORDERS.standard,
   },
 })
