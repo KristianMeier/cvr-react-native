@@ -1,4 +1,4 @@
-import { BORDERS, FONTSIZES, SIZES } from '../styles'
+import { COLORS, FONTSIZES, SIZES } from '../styles'
 import { SafeAreaViewWrapper } from './SafeAreaViewWrapper'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
@@ -6,21 +6,23 @@ interface GatedWrapperProps {
   onPress: () => void
   buttonText: string
   header: string
+  children?: React.ReactNode
 }
 
 export const GatedWrapper = ({
   header,
   onPress,
   buttonText,
+  children,
 }: GatedWrapperProps) => {
   return (
     <SafeAreaViewWrapper header={header}>
       <TouchableOpacity
-        // @ts-ignore
         style={styles.button}
         onPress={onPress}>
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
+      {children}
     </SafeAreaViewWrapper>
   )
 }
@@ -36,11 +38,14 @@ const styles = StyleSheet.create({
     marginBottom: SIZES.large,
   },
   button: {
-    ...BORDERS.standard,
     padding: SIZES.small,
     marginBottom: SIZES.small,
     width: 145,
+    borderWidth: 1,
+    borderColor: COLORS.gray2,
+    borderStyle: 'solid',
   },
+
   buttonText: {
     textAlign: 'center',
   },

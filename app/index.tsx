@@ -3,8 +3,8 @@ import contentData from '../constants/database.json'
 import { TextInput, StyleSheet } from 'react-native'
 import { t } from '../i18n'
 import { SearchContextProps, useSearchContext } from '../context'
-import { SafeAreaViewWrapper } from '../components'
-import { SIZES, BORDERS } from '../styles'
+import { SIZES, COLORS } from '../styles'
+import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const allCompanies = contentData.companiesData
 
@@ -15,7 +15,6 @@ const Index = () => {
   return (
     <SafeAreaViewWrapper header={t('searchTitle')}>
       <TextInput
-        // @ts-ignore
         style={styles.textInput}
         value={searchField}
         onChangeText={setSearchField}
@@ -33,6 +32,8 @@ const styles = StyleSheet.create({
     padding: SIZES.medium,
     flex: 1,
     width: '100%',
-    ...BORDERS.standard,
+    borderWidth: 1,
+    borderColor: COLORS.gray2,
+    borderStyle: 'solid',
   },
 })

@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { Stack, useRouter } from 'expo-router'
 import { navigationData } from '../constants'
-import { SIZES, COLORS, FONT, BORDERS } from '../styles'
+import { SIZES, COLORS, FONT } from '../styles'
 import { NavigationContextProps, useNagigationContext } from '../context'
 
 export const Navigation = () => {
@@ -25,14 +25,27 @@ export const Navigation = () => {
           renderItem={({ item }) => {
             return (
               <TouchableOpacity
-                // @ts-ignore
-                style={styles.tab(activeTab, item.text)}
+                style={[
+                  styles.tab,
+                  {
+                    borderColor:
+                      activeTab === item.path ? COLORS.secondary : COLORS.gray2,
+                  },
+                ]}
                 onPress={() => {
                   setActiveTab(item.text)
                   router.push(item.path)
                 }}>
-                {/* @ts-ignore */}
-                <Text style={styles.tabText(activeTab, item.text)}>
+                <Text
+                  style={[
+                    styles.tabText,
+                    {
+                      color:
+                        activeTab === item.path
+                          ? COLORS.secondary
+                          : COLORS.gray2,
+                    },
+                  ]}>
                   {item.text}
                 </Text>
               </TouchableOpacity>
@@ -55,18 +68,14 @@ const styles = StyleSheet.create({
     marginTop: SIZES.medium,
     marginBottom: SIZES.medium,
   },
-  // @ts-ignore
-  tab: (activeJobType, item) => ({
-    flex: 'shrink',
+  tab: {
     paddingVertical: SIZES.small / 2,
     paddingHorizontal: SIZES.small,
     borderRadius: SIZES.medium,
-    ...BORDERS.standard,
-    borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
-  }),
-  //@ts-ignore
-  tabText: (activeJobType, item) => ({
+    borderWidth: 1,
+    borderStyle: 'solid',
+  },
+  tabText: {
     fontFamily: FONT.medium,
-    color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
-  }),
+  },
 })

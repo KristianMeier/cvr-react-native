@@ -2,8 +2,8 @@ import { getConvertedCompanyData } from '../utils'
 import contentData from '../constants/database.json'
 import { View, Text, StyleSheet } from 'react-native'
 import { t } from '../i18n'
-import { SafeAreaViewWrapper } from '../components/'
-import { BORDERS, FONT, FONTSIZES, SIZES } from '../styles'
+import { COLORS, FONT, FONTSIZES, SIZES } from '../styles'
+import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const Company = () => {
   const companies = contentData.companiesData
@@ -21,7 +21,6 @@ const Company = () => {
 
   return (
     <SafeAreaViewWrapper header={companyName}>
-      {/* @ts-ignore */}
       <View style={styles.companyWrapper}>
         <View style={styles.companyContainer}>
           {formattedCompany.map(({ title, field }) => (
@@ -41,7 +40,9 @@ export default Company
 export const styles = StyleSheet.create({
   companyWrapper: {
     padding: SIZES.medium,
-    ...BORDERS.standard,
+    borderWidth: 1,
+    borderColor: COLORS.gray2,
+    borderStyle: 'solid',
     width: '100%',
   },
   companyName: {
@@ -49,9 +50,7 @@ export const styles = StyleSheet.create({
     fontSize: FONTSIZES.s,
   },
   companyContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: SIZES.medium,
+    gap: SIZES.large,
   },
   title: {
     fontFamily: FONT.bold,

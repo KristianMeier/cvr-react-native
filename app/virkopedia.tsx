@@ -2,8 +2,8 @@ import { useState } from 'react'
 import contentData from '../constants/database.json'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { t } from '../i18n'
-import { SafeAreaViewWrapper } from '../components'
 import { COLORS, FONT, SIZES } from '../styles'
+import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const articles = contentData.virkopediaData
 
@@ -17,12 +17,16 @@ const Virkopedia = () => {
         <View style={styles.btnContainer}>
           {articles.map(({ title }, index) => {
             const isActiveButton = index === activeButtonIndex
+
             return (
               <TouchableOpacity
                 key={t(title) + index}
                 onPress={() => setActiveButtonIndex(index)}>
-                {/* @ts-ignore */}
-                <Text style={styles.buttonText(isActiveButton)}>
+                <Text
+                  style={[
+                    styles.buttonText,
+                    { fontFamily: isActiveButton ? FONT.bold : FONT.regular },
+                  ]}>
                   {t(title)}
                 </Text>
               </TouchableOpacity>
@@ -44,6 +48,7 @@ export default Virkopedia
 const styles = StyleSheet.create({
   btnContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     gap: 10,
     marginBottom: SIZES.medium,
     borderBottomColor: COLORS.gray2,
@@ -60,10 +65,8 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
     lineHeight: 20,
   },
-  //@ts-ignore
-  buttonText: (isActiveButton) => ({
+  buttonText: {
     textAlign: 'center',
     fontSize: 16,
-    fontFamily: isActiveButton ? FONT.bold : FONT.regular,
-  }),
+  },
 })

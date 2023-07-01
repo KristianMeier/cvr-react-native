@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native'
 import { t } from '../../i18n'
-import { StyledLink } from '../'
 import { COMPANY_PATH } from '../../constants'
-import { BORDERS, FONT, SIZES } from '../../styles'
+import { COLORS, FONT, SIZES } from '../../styles'
+import { StyledLink } from '../StyledLink'
 
 interface SearchCompanyProps {
   convertedData: {
@@ -38,7 +38,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     padding: SIZES.medium,
     marginTop: SIZES.medium,
-    ...BORDERS.standard,
+    borderWidth: 1,
+    borderColor: COLORS.gray2,
+    borderStyle: 'solid',
   },
   text: {
     padding: SIZES.medium,

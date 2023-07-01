@@ -1,6 +1,6 @@
 import normalize from 'react-native-normalize'
 
-const COLORS = {
+export const COLORS = {
   primary: '#312651',
   secondary: '#444262',
   tertiary: '#FF7754',
@@ -10,13 +10,13 @@ const COLORS = {
   lightWhite: '#FAFAFC',
 }
 
-const FONT = {
+export const FONT = {
   regular: 'DMRegular',
   medium: 'DMMedium',
   bold: 'DMBold',
 }
 
-const SIZES = {
+export const SIZES = {
   xSmall: 10,
   small: 12,
   medium: 16,
@@ -25,7 +25,7 @@ const SIZES = {
   xxLarge: 32,
 }
 
-const FONTSIZES = {
+export const FONTSIZES = {
   xs: normalize(10),
   s: normalize(14),
   m: normalize(16),
@@ -33,7 +33,7 @@ const FONTSIZES = {
   xl: normalize(20),
 }
 
-const SHADOWS = {
+export const SHADOWS = {
   small: {
     shadowColor: '#000',
     shadowOffset: {
@@ -55,13 +55,3 @@ const SHADOWS = {
     elevation: 5,
   },
 }
-
-const BORDERS = {
-  standard: {
-    borderWidth: 1,
-    borderColor: COLORS.gray2,
-    borderStyle: 'solid',
-  },
-}
-
-export { COLORS, FONT, SIZES, FONTSIZES, SHADOWS, BORDERS }

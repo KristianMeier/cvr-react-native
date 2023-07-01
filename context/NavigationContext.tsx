@@ -14,7 +14,7 @@ const NavigationContext = createContext<NavigationContextProps | null>(null)
 export const NavigationContextProvider = ({
   children,
 }: NavigationContextProviderProps) => {
-  const [activeTab, setActiveTab] = useState('Search')
+  const [activeTab, setActiveTab] = useState('')
 
   return (
     <NavigationContext.Provider

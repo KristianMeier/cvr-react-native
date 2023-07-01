@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import GatedContent from './'
 import { useRouter } from 'expo-router'
 import { AuthContextProps, useAuthContext } from '../context'
-import { REGISTER_PATH } from '../constants'
+import { GATED_CONTENT_PATH, REGISTER_PATH } from '../constants'
 import { AuthComponent } from '../components/AuthComponent'
 
 const MyAccount = () => {
@@ -14,15 +13,15 @@ const MyAccount = () => {
     createTable()
   }, [])
 
-  if (isLoggedIn) return <GatedContent />
+  if (isLoggedIn) router.push(GATED_CONTENT_PATH)
 
   return (
     <AuthComponent
       header="Log in beneath"
       onPressLeft={loginUser}
-      btnTextLeft="Login"
+      btnTextLeft="Log In"
       onPressRight={() => router.push(REGISTER_PATH)}
-      btnTextRight="Register"
+      btnTextRight="Go to Register Screen"
     />
   )
 }

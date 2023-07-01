@@ -1,6 +1,7 @@
 import { useState, useContext, createContext } from 'react'
 import * as SQLite from 'expo-sqlite'
-import { useMessageRenderer } from '../hooks'
+import { useRouter } from 'expo-router'
+import { GATED_CONTENT_PATH } from '../constants'
 
 const db = SQLite.openDatabase('authentication.db')
 
@@ -19,6 +20,13 @@ export interface AuthContextProps {
   createTable: () => void
   loginUser: () => void
   registerUser: () => void
+  readUsers: () => void
+  clearUsers: () => void
+  users: any[] | undefined
+  data: {
+    username: string
+    password: string
+  }
 }
 
 const AuthContext = createContext<AuthContextProps | null>(null)
@@ -27,7 +35,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { showMessage } = useMessageRenderer()
+  const [users, setUsers] = useState()
+  const router = useRouter()
 
   const logOut = () => {
     setIsLoggedIn(false)
@@ -53,8 +62,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         (_, { rows }) => {
           if (rows.length > 0) {
             logIn()
+            router.push(GATED_CONTENT_PATH)
+            console.log(username, password)
           } else {
-            showMessage('Invalid username or password.')
+            console.log('Failed to login user.')
           }
         }
       )
@@ -68,12 +79,36 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         [username, password],
         (_, { insertId }) => {
           if (insertId) {
-            showMessage('User registered successfully.')
+            console.log('User registered successfully.')
+            readUsers()
+            console.log(users)
           } else {
-            showMessage('Failed to register user.')
+            console.log('Failed to register user.')
           }
         }
       )
+    })
+  }
+
+  const readUsers = () => {
+    db.transaction((tx) => {
+      tx.executeSql('SELECT * FROM users;', [], (_, { rows }) => {
+        // setUsers(rows._array)
+        // console.log('srows', rows)
+        console.log(rows._array)
+        // console.log(users)
+        return rows._array
+      })
+    })
+  }
+
+  const data = readUsers()
+
+  const clearUsers = () => {
+    db.transaction((tx) => {
+      tx.executeSql('DELETE FROM users;', [], () => {
+        console.log('Users cleared successfully.')
+      })
     })
   }
 
@@ -90,6 +125,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         createTable,
         loginUser,
         registerUser,
+        readUsers,
+        clearUsers,
+        users,
+        data,
       }}>
       {children}
     </AuthContext.Provider>
