@@ -2,7 +2,7 @@ import { useState } from 'react'
 import contentData from '../constants/database.json'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { t } from '../i18n'
-import { COLORS, FONT, SIZES } from '../styles'
+import { COLORS, FONT, FONTSIZES, SIZES } from '../styles'
 import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const articles = contentData.virkopediaData
@@ -56,16 +56,15 @@ const styles = StyleSheet.create({
   },
 
   headline: {
-    fontSize: 16,
+    fontSize: FONTSIZES.m,
     fontFamily: FONT.bold,
   },
   text: {
-    fontSize: 12,
-    fontFamily: FONT.regular,
+    fontSize: FONTSIZES.xs,
     lineHeight: 20,
   },
   buttonText: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: FONTSIZES.m,
   },
 })

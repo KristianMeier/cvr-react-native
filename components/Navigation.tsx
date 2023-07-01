@@ -17,20 +17,18 @@ export const Navigation = () => {
   const router = useRouter()
 
   return (
-    <>
+    <View style={styles.container}>
       <Stack.Screen options={{ header: () => null }} />
       <View style={styles.tabsContainer}>
         <FlatList
           data={navigationData}
           renderItem={({ item }) => {
+            const isActiveTab = activeTab === item.text
             return (
               <TouchableOpacity
                 style={[
                   styles.tab,
-                  {
-                    borderColor:
-                      activeTab === item.text ? COLORS.black : COLORS.gray2,
-                  },
+                  { borderColor: isActiveTab ? COLORS.black : COLORS.gray2 },
                 ]}
                 onPress={() => {
                   setActiveTab(item.text)
@@ -39,10 +37,7 @@ export const Navigation = () => {
                 <Text
                   style={[
                     styles.tabText,
-                    {
-                      color:
-                        activeTab === item.text ? COLORS.black : COLORS.gray2,
-                    },
+                    { color: isActiveTab ? COLORS.black : COLORS.gray2 },
                   ]}>
                   {item.text}
                 </Text>
@@ -54,7 +49,7 @@ export const Navigation = () => {
           horizontal
         />
       </View>
-    </>
+    </View>
   )
 }
 
@@ -65,6 +60,7 @@ const styles = StyleSheet.create({
   tabsContainer: {
     marginTop: SIZES.medium,
     marginBottom: SIZES.medium,
+    height: 30,
   },
   tab: {
     paddingVertical: SIZES.small / 2,

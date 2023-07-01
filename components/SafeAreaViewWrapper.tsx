@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet, ScrollView, View, Text } from 'react-native'
 import { Navigation } from './Navigation'
-import { COLORS, FONT, SIZES } from '../styles'
+import { COLORS, FONT, FONTSIZES, SIZES } from '../styles'
 
 interface SafeAreaViewWrapperProps {
   children: React.ReactNode
@@ -25,6 +25,11 @@ export const SafeAreaViewWrapper = ({
 }
 
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: COLORS.white,
@@ -36,6 +41,6 @@ const styles = StyleSheet.create({
   header: {
     marginBottom: SIZES.medium,
     fontFamily: FONT.bold,
-    fontSize: SIZES.xLarge,
+    fontSize: FONTSIZES.xxl,
   },
 })

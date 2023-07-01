@@ -74,9 +74,11 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
     padding: SIZES.small,
     marginBottom: SIZES.small,
-    flex: 1,
     borderWidth: 1,
     borderColor: COLORS.gray2,
     borderStyle: 'solid',
