@@ -37,14 +37,15 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
   const logIn = () => {
     setIsLoggedIn(true)
+    router.push(GATED_CONTENT_PATH)
   }
 
   const createTable = () => {
-    db.transaction((tx) => {
+    db.transaction((tx) =>
       tx.executeSql(
         'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, password TEXT NOT NULL);'
       )
-    })
+    )
   }
 
   const loginUser = () => {
@@ -53,12 +54,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         'SELECT * FROM users WHERE username = ? AND password = ?;',
         [username, password],
         (_, { rows }) => {
-          if (rows.length > 0) {
-            logIn()
-            router.push(GATED_CONTENT_PATH)
-          } else {
-            console.log('Failed to login user.')
-          }
+          const userExists = rows.length > 0
+          userExists ? logIn() : console.log('Invalid username or password.')
         }
       )
     })
@@ -75,13 +72,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       tx.executeSql(
         'INSERT INTO users (username, password) VALUES (?, ?);',
         [username, password],
-        (_, { insertId }) => {
-          if (insertId) {
-            console.log('User registered successfully.')
-          } else {
-            console.log('Failed to register user.')
-          }
-        }
+        (_, { insertId }) =>
+          insertId
+            ? console.log('User registered successfully.')
+            : console.log('Failed to register user.')
       )
     })
   }
@@ -92,11 +86,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         'SELECT * FROM users WHERE username = ?;',
         [username],
         (_, { rows }) => {
-          if (rows.length > 0) {
-            console.log('Username already exists.')
-          } else {
-            addUsertoDb()
-          }
+          const userExists = rows.length > 0
+          userExists ? console.log('Username already exists.') : addUsertoDb()
         }
       )
     })
