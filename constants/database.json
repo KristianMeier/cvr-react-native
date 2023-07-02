@@ -1,0 +1,136 @@
+{
+  "headers": [
+    {
+      "textKey": "headers.text.front_page",
+      "link": "headers.link.front"
+    },
+    {
+      "textKey": "headers.text.search_cvr",
+      "link": "headers.link.search"
+    },
+    {
+      "textKey": "headers.text.help_virk",
+      "link": "headers.link.virkopedia"
+    }
+  ],
+  "footer": [
+    {
+      "columnLinks": [
+        "footerFirstColumnOne",
+        "footerFirstColumnTwo",
+        "footerFirstColumnThree",
+        "footerFirstColumnFour"
+      ]
+    },
+    {
+      "columnLinks": [
+        "footerSecondColumnOne",
+        "footerSecondColumnTwo",
+        "footerSecondColumnThree",
+        "footerSecondColumnFour",
+        "footerSecondColumnFive"
+      ]
+    },
+    {
+      "columnLinks": [
+        "footerThirdColumnOne",
+        "footerThirdColumnTwo",
+        "footerThirdColumnThree",
+        "footerThirdColumnFour",
+        "footerThirdColumnFive"
+      ]
+    }
+  ],
+  "virkopediaData": [
+    {
+      "title": "virkopediaTitleAquasition",
+      "content": "virkopediaContentAquisition"
+    },
+    {
+      "title": "virkopediaTitleAdvance",
+      "content": "virkopediaContentProfit"
+    },
+    {
+      "title": "virkopediaTitleAnnuity",
+      "content": "virkopediaContentTerm"
+    },
+    {
+      "title": "virkopediaTitleAsset",
+      "content": "virkopediaContentAsset"
+    },
+    {
+      "title": "virkopediaTitleBeta",
+      "content": "virkopediaContentBeta"
+    }
+  ],
+  "landingPageData": [
+    {
+      "numberOfColumns": "placeholders.number.of.columns.row.one",
+      "titleColumnOne": "placeholders.title.column.one.row.one",
+      "contentColumnOne": "placeholders.content.column.one.row.one",
+      "titleColumnTwo": "placeholders.title.column.two.row.one",
+      "contentColumnTwo": "placeholders.content.column.two.row.one",
+      "titleColumnThree": "placeholders.title.column.three.row.one",
+      "contentColumnThree": "placeholders.content.column.three.row.one"
+    },
+    {
+      "numberOfColumns": "placeholders.number.of.columns.row.two",
+      "titleColumnOne": "placeholders.title.column.one.row.two",
+      "contentColumnOne": "placeholders.content.column.one.row.two",
+      "titleColumnTwo": "placeholders.title.column.two.row.two",
+      "contentColumnTwo": "placeholders.content.column.two.row.two"
+    },
+    {
+      "numberOfColumns": "placeholders.number.of.columns.row.three",
+      "titleColumnOne": "placeholders.title.column.one.row.three",
+      "contentColumnOne": "placeholders.content.column.one.row.three"
+    }
+  ],
+  "companiesData": [
+    {
+      "uid": "companyUidOne",
+      "cvrNumber": "companyCvrNumberOne",
+      "companyName": "companynameOne",
+      "address": "companyAddressOne",
+      "postNoCity": "companyPostnoCityOne",
+      "companyType": "companyTypeOne",
+      "status": "companyStatusOne"
+    },
+    {
+      "uid": "companyUidTwo",
+      "cvrNumber": "companyCvrNumberTwo",
+      "companyName": "companynameTwo",
+      "address": "companyAddressTwo",
+      "postNoCity": "companyPostnoCityTwo",
+      "companyType": "companyTypeTwo",
+      "status": "companyStatusTwo"
+    },
+    {
+      "uid": "companyUidThree",
+      "cvrNumber": "companyCvrNumberThree",
+      "companyName": "companynameThree",
+      "address": "companyAddressThree",
+      "postNoCity": "companyPostnoCityThree",
+      "companyType": "companyTypeThree",
+      "status": "companyStatusThree"
+    },
+    {
+      "uid": "companyUidFour",
+      "cvrNumber": "companyCvrNumberFour",
+      "companyName": "companynameFour",
+      "address": "companyAddressFour",
+      "postNoCity": "companyPostnoCityFour",
+      "companyType": "companyTypeFour",
+      "status": "companyStatusFour"
+    },
+    {
+      "uid": "companyUidFive",
+      "cvrNumber": "companyCvrNumberFive",
+      "companyName": "companynameFive",
+      "address": "companyAddressFive",
+      "postNoCity": "companyPostnoCityFive",
+      "companyType": "companyTypeFive",
+      "status": "companyStatusFive"
+    }
+  ]
+}
