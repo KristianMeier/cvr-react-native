@@ -4,8 +4,7 @@ Make a iOS/Android verison of this webapp: https://cvr-krme-v02.netlify.app/
 
 ### Realse 1
 
-- Release v. 0.1 does not have dynamic paging for the company results. THis will be included in Release v. 0.2.
-- Release v. 0.1 have a temp authentication as well as no "add emplyee to database".
+- Release v. 0.1 does not have dynamic paging for the company results. This will be included in Release v. 0.2.
 
 ## Instructions
 
