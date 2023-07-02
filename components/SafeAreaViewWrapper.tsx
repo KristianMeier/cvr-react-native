@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet, ScrollView, View, Text } from 'react-native'
 import { Navigation } from './Navigation'
-import { COLORS, FONT, FONTSIZES, SIZES } from '../styles'
+import { COLORS, FONT, FONTSIZES, SIZES } from '../theme'
 
 interface SafeAreaViewWrapperProps {
   children: React.ReactNode

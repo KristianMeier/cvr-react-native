@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native'
 import { AuthContextProps, useAuthContext } from '../context'
-import { BORDER_COLOR, BORDER_STYLE, BORDER_WIDTH, SIZES } from '../styles'
+import { BORDER_COLOR, BORDER_STYLE, BORDER_WIDTH, SIZES } from '../theme'
 import { SafeAreaViewWrapper } from './SafeAreaViewWrapper'
 
 interface AuthComponentProps {

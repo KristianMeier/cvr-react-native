@@ -2,7 +2,7 @@ import { useState } from 'react'
 import contentData from '../constants/database.json'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { t } from '../i18n'
-import { BORDER_COLOR, BORDER_WIDTH, FONT, FONTSIZES, SIZES } from '../styles'
+import { BORDER_COLOR, BORDER_WIDTH, FONT, FONTSIZES, SIZES } from '../theme'
 import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const articles = contentData.virkopediaData

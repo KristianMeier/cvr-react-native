@@ -4,7 +4,7 @@ import {
   BORDER_WIDTH,
   FONTSIZES,
   SIZES,
-} from '../styles'
+} from '../theme'
 import { SafeAreaViewWrapper } from './SafeAreaViewWrapper'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 

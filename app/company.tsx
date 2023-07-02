@@ -9,7 +9,7 @@ import {
   FONT,
   FONTSIZES,
   SIZES,
-} from '../styles'
+} from '../theme'
 import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const Company = () => {

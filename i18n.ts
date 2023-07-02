@@ -6,4 +6,4 @@ export const i18n = new I18n(translations)
 i18n.locale = Localization.locale
 i18n.enableFallback = true
 
-export const t = (translationKey) => i18n.t(translationKey)
+export const t = (translationKey: string) => i18n.t(translationKey)

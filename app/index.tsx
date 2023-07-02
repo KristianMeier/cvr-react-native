@@ -3,7 +3,7 @@ import contentData from '../constants/database.json'
 import { TextInput, StyleSheet } from 'react-native'
 import { t } from '../i18n'
 import { SearchContextProps, useSearchContext } from '../context'
-import { SIZES, BORDER_WIDTH, BORDER_COLOR, BORDER_STYLE } from '../styles'
+import { SIZES, BORDER_WIDTH, BORDER_COLOR, BORDER_STYLE } from '../theme'
 import { SafeAreaViewWrapper } from '../components/SafeAreaViewWrapper'
 
 const allCompanies = contentData.companiesData

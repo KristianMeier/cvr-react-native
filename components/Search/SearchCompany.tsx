@@ -7,7 +7,7 @@ import {
   BORDER_WIDTH,
   FONT,
   SIZES,
-} from '../../styles'
+} from '../../theme'
 import { StyledLink } from '../StyledLink'
 
 interface SearchCompanyProps {

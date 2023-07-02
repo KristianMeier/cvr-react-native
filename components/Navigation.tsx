@@ -15,7 +15,7 @@ import {
   BORDER_WIDTH,
   BORDER_COLOR,
   BORDER_STYLE,
-} from '../styles'
+} from '../theme'
 import { NavigationContextProps, useNagigationContext } from '../context'
 
 interface renderItemProps {
@@ -53,6 +53,7 @@ export const Navigation = () => {
       </TouchableOpacity>
     )
   }
+
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ header: () => null }} />
@@ -76,9 +77,11 @@ const styles = StyleSheet.create({
   tabsContainer: {
     marginTop: SIZES.medium,
     marginBottom: SIZES.medium,
-    height: 30,
+    maxHeight: 40,
   },
   tab: {
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: SIZES.xxSmall,
     paddingHorizontal: SIZES.small,
     borderWidth: BORDER_WIDTH,
@@ -87,5 +90,6 @@ const styles = StyleSheet.create({
   },
   tabText: {
     fontFamily: FONT.medium,
+    textAlign: 'center',
   },
 })
